@@ -1,0 +1,26 @@
+{
+  "name": "rxstatebus",
+  "version": "1.0.0",
+  "description": "A rxjs based data bus coupled with a state engine with history handling.",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rxjs",
+    "bus",
+    "state",
+    "history",
+    "marbles",
+    "reset"
+  ],
+  "author": "David Jakubowski",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.5"
+  }
+}
