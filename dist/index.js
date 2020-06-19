@@ -21,8 +21,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.types = void 0;
 var message_state_handler_1 = require("./message-state.handler");
-Object.defineProperty(exports, "state", { enumerable: true, get: function () { return message_state_handler_1.MessageStateHandler; } });
+Object.defineProperty(exports, "State", { enumerable: true, get: function () { return message_state_handler_1.MessageStateHandler; } });
 var message_control_bus_1 = require("./message-control.bus");
-Object.defineProperty(exports, "bus", { enumerable: true, get: function () { return message_control_bus_1.MessageControlBus; } });
+Object.defineProperty(exports, "Bus", { enumerable: true, get: function () { return message_control_bus_1.MessageControlBus; } });
 var types = __importStar(require("./types/bus.type"));
 exports.types = types;

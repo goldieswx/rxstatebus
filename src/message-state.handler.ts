@@ -22,11 +22,11 @@ export class MessageStateHandler {
         this._busMessages = {};
     }
 
-    _getNextSequenceId(): number {
+    private _getNextSequenceId(): number {
         return (this._sequenceId++);
     }
 
-    _updateHistoryWithCurrent (messageCollection : BusMessageCollection<any>) {
+    private _updateHistoryWithCurrent (messageCollection : BusMessageCollection<any>) {
         messageCollection.history.push(_.cloneDeep(messageCollection.current));
         messageCollection.history = messageCollection.history.slice(-this._retainInHistory);
     }
@@ -213,7 +213,7 @@ export class MessageStateHandler {
     }
 
 
-    compactMessage<T>(m: BusMessage<any>) : MessageStateCompactedMessage<T> {
+    public compactMessage<T>(m: BusMessage<any>) : MessageStateCompactedMessage<T> {
 
             const compacted : MessageStateCompactedMessage<any> = {
                     iId: m.itemId,

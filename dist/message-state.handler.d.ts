@@ -4,8 +4,8 @@ export declare class MessageStateHandler {
     private _sequenceId;
     private _retainInHistory;
     constructor(options?: any);
-    _getNextSequenceId(): number;
-    _updateHistoryWithCurrent(messageCollection: BusMessageCollection<any>): void;
+    private _getNextSequenceId;
+    private _updateHistoryWithCurrent;
     private _findSequence;
     private _findSequenceHistory;
     getHook<T>(header: BusMessageHeader, hookId: string): BusMessageHook<T>;

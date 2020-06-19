@@ -27,7 +27,7 @@ export class MessageControlBus {
      *                      (disregarding the fact that the hook(s) have returned any valid data; except
      *                      if they are included in the "withValid" array). Note: withValid
      */
-    getMessageBus(filterFn ?: ((msg : BusMessageHeader) => boolean) |
+    public getMessageBus(filterFn ?: ((msg : BusMessageHeader) => boolean) |
         { serviceId ?: string, hooks : { justAfter: string[], withValid?: string[]}}) : Observable<BusMessageHeader> {
 
         let usedFilter = (header : BusMessageHeader) => true;
@@ -62,7 +62,7 @@ export class MessageControlBus {
         return this._messageBus.asObservable().pipe(filter(usedFilter));
     }
 
-    processIncomingMessage<T>(serviceId : string,message : T,timestamp : Date,itemId : string) {
+    public  processIncomingMessage<T>(serviceId : string,message : T,timestamp : Date,itemId : string) {
         const msg : BusMessageCollection<T> = this._messageStateHandler.newMessage(serviceId,itemId,message,timestamp,false);
         this._messageBus.next({
             serviceId: serviceId,
@@ -71,7 +71,7 @@ export class MessageControlBus {
         });
     }
 
-    reset(serviceId : string) {
+    public  reset(serviceId : string) {
         this._messageStateHandler.callServiceItems(serviceId,(itemId : string) => {
             const msg : BusMessageCollection<any> = this._messageStateHandler.newMessage(serviceId,itemId,null,null,true);
             this._messageBus.next({
@@ -83,7 +83,7 @@ export class MessageControlBus {
 
     }
 
-    processHookMessage(
+    public  processHookMessage(
             serviceId : string,
             itemId : string,
             hookId : string,
