@@ -50,7 +50,7 @@ Let's subscribe to the stream.
 ```
 import { State } from "rxstatebus";
 
-const messageState : State = new State(bus);
+const messageState : State = new State(messageBus);
 
 messageState.getMessageBus((filter) => filter.serviceId === "my-service-id")
             .subscribe(
