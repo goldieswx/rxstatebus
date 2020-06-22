@@ -8,8 +8,7 @@ Its goal is to group several processes listenning to a stream an interacting wit
 
 It allows to process messages and to attach data to messages (hooks), while keeping all processes independant but in allowing processs an access to their immediate history and any other processes (that we calls hooks) too.
 
-## architecture
-
+#Quick start
 This is the simplest bus with a couple of messages.
 
 ![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
