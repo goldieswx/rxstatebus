@@ -18,15 +18,19 @@ Define a simple bus and send a couple of messages at a timed interval. Messages 
 
 ![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
 
+Our service data will be defined as follows
+
+```
+type TMyServiceData = {
+     someId : number;
+}
+```
+
 ```
 import { Bus } from "rxstatebus";
 
 messageBus : Bus = new Bus();
 myTickCount : number = 0;
-
-export type TMyServiceData = {
-     someId : number;
-}
 
 setInterval(() => { 
      myTickCount ++;
@@ -37,8 +41,6 @@ setInterval(() => {
           "userid-9999"
      ); 
 }
-
-
 ```
 
 Now let's subscribe to the stream.
