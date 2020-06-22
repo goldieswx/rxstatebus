@@ -52,7 +52,7 @@ import { State } from "rxstatebus";
 
 const messageState : State = new State(bus);
 
-messageState.getMessageBus({serviceId : "my-service-id"})
+messageState.getMessageBus((filter) => filter.serviceId === "my-service-id")
             .subscribe(
                     header: BusMessageHeader<TMyServiceData> => {
                          console.log (messageState.getMessage(header))
