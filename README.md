@@ -22,7 +22,7 @@ Our service data will be defined as follows
 
 ```
 type TMyServiceData = {
-     someId : number;
+     someValue : number;
 }
 ```
 
@@ -38,7 +38,7 @@ setInterval(() => {
      myTickCount ++;
      messageBus.processIncomingMessage (
           "my-service-id", 
-          <TMyServiceData> { someId : myTickCount }, 
+          <TMyServiceData> { someValue : myTickCount }, 
           new Date(), 
           "userid-9999"
      ); 
