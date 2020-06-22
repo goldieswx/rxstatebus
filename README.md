@@ -14,19 +14,25 @@ It allows to process messages and to attach data to messages (hooks), while keep
 npm install rxstatebus
 ```
 
-Define a simple bus and send a couple of messages at a timed interval. Messages are timestamped and should have an id. 
+Define a simple bus and send a couple of messages at a timed interval. Messages are timestamped and should have an identifier, so that it can be referenced later in the history (serviceid/messageid/sequenceid).  
+
+![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
 
 ```
 import { Bus } from "rxstatebus";
 
-myTickingService : Bus = new Bus();
+messageBus : Bus = new Bus();
 myTickCount : number = 0;
+
+export type TMyServiceData = {
+     someId : number;
+}
 
 setInterval(() => { 
      myTickCount ++;
-     myService.processIncomingMessage (
+     messageBus.processIncomingMessage (
           "my-service-id", 
-          { someId : myTickCount }, 
+          <TMyServiceData> { someId : myTickCount }, 
           new Date(), 
           "userid-9999"
      ); 
@@ -35,4 +41,19 @@ setInterval(() => {
 
 ```
 
-![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
+Now let's subscribe to the stream.
+
+```
+import { State } from "rxstatebus";
+
+const messageState : State = new State(bus);
+
+messageState.getMessageBus({serviceId : "my-service-id"})
+            .subscribe(
+                    header: BusMessageHeader<TMyServiceData> => {
+                         console.log (messageState.getMessage(header))
+                    }
+             );
+```
+
+
