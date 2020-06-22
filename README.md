@@ -10,7 +10,25 @@ It allows to process messages and to attach data to messages (hooks), while keep
 
 ## Quick start
 
+```
+npm install rxstatebus
+```
+
 This is the simplest bus with a couple of messages.
 
 ![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
+
+```
+import { Bus } from "rxstatebus";
+
+myTickingService : Bus = new Bus();
+myTickCount : number = 0;
+
+setInterval(() => { 
+     myTickCount ++;
+     myService.processIncomingMessage ("my-service-id", { someId : myTickCount }, new Date(), "userid-9999"); 
+}
+
+
+```
 
