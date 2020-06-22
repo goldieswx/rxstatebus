@@ -14,9 +14,7 @@ It allows to process messages and to attach data to messages (hooks), while keep
 npm install rxstatebus
 ```
 
-This is the simplest bus with a couple of messages.
-
-![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
+Define a simple bus and send a couple of messages at a timed interval. Messages are timestamped and should have an id. 
 
 ```
 import { Bus } from "rxstatebus";
@@ -26,9 +24,15 @@ myTickCount : number = 0;
 
 setInterval(() => { 
      myTickCount ++;
-     myService.processIncomingMessage ("my-service-id", { someId : myTickCount }, new Date(), "userid-9999"); 
+     myService.processIncomingMessage (
+          "my-service-id", 
+          { someId : myTickCount }, 
+          new Date(), 
+          "userid-9999"
+     ); 
 }
 
 
 ```
 
+![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
