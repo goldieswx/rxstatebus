@@ -12,5 +12,5 @@ It allows to process messages and to attach data to messages (hooks), while keep
 
 This is the simplest bus with a couple of messages.
 
-![Alt text](img/mainbus.png?raw=true "Simplest bus")
+![Alt text](img/rxstatebus-main.png?raw=true "Simplest bus")
 
