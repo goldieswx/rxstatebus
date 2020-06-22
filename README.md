@@ -26,6 +26,8 @@ type TMyServiceData = {
 }
 ```
 
+Now we create the initial bus and write some data into it.
+
 ```
 import { Bus } from "rxstatebus";
 
@@ -43,7 +45,7 @@ setInterval(() => {
 }
 ```
 
-Now let's subscribe to the stream.
+Let's subscribe to the stream.
 
 ```
 import { State } from "rxstatebus";
